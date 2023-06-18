@@ -1,7 +1,6 @@
-import Card from './Card';
+import Card from './Card/Card';
 
 export default function Cards(props) {
-   // console.log('queeeto', props.characters)
    return <div>
       <ul>
          {props.characters.map((char)=>(
@@ -13,6 +12,7 @@ export default function Cards(props) {
             gender={char.gender}
             origin={char.origin.name}
             image={char.image}
+            onClose={props.onClose}
             />
             )
          )}

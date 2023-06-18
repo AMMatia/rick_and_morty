@@ -1,14 +1,18 @@
 
+
 export default function Card(props) {
    return (
       <div>
-         <button onClick={()=>alert('Supuestamente se cierra')}>X</button>
+         <button onClick={()=>props.onClose(props.id)}>X</button>
+         <img src={props.image} alt='' />
+         <div>
          <h2>{props.name}</h2>
          <h2>{props.status}</h2>
          <h2>{props.species}</h2>
          <h2>{props.gender}</h2>
          <h2>{props.origin.name}</h2>
-         <img src={props.image} alt='' />
+         </div>
+         
       </div>
    );
 }
