@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-// export const Error=styled.div`
-//     display:flex;
-//     align-items:center;
-//     flex-direction:row;
-//     justify-content:center;
+export const Error=styled.div`
+    display:flex;
+    align-items:center;
+    flex-direction:row;
+    justify-content:center;
 
-// `
+`
 export const Divprueba = styled.div`
     position:relative;
     background-color: gray;
