@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from '../Card/Card.module.css'
 import validation from "./validation";
 
+
 export default function Form(props){
     const [userData,setUserData] = useState({
         email:'',
@@ -33,6 +34,7 @@ export default function Form(props){
     }
     return(
         <form className={styles.formulario}>
+ 
             <label>Email:</label>
             <input name='email' value={userData.email} onChange={handleChange}/>
             {errors.email && 

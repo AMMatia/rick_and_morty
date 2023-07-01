@@ -22,7 +22,9 @@ function App() {
       if(userData.email === EMAIL && userData.password === PASSWORD){
          setAccess(true);
          navigate('/home');
-      }
+      }else {
+         window.alert('Nombre de usuario o contraseña incorrectos');
+     }
 
    }
 

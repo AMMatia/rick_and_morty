@@ -4,9 +4,9 @@ import styles from '../Card/Card.module.css'
 export default function Cards(props) {
    return <div className={styles.cardContainer}>
       
-         {props.characters.map((char,index)=>(
+         {props.characters.map((char)=>(
             < Card
-            key={index}
+            key={char.id}
             id={char.id}
             name={char.name}
             // status={char.status}
