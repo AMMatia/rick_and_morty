@@ -36,12 +36,12 @@ export default function Form(props){
             <label>Email:</label>
             <input name='email' value={userData.email} onChange={handleChange}/>
             {errors.email && 
-            <p>{errors.email}</p>}
+            <p className={styles.errormessage}>{errors.email}</p>}
             
             <label>Password:</label>
             <input name='password' value={userData.password} onChange={handleChange}/>
             {errors.password && 
-            <p>{errors.password}</p>}
+            <p className={styles.errormessage}>{errors.password}</p>}
 
             <button onClick={handleSubmit}>Submit</button>
         </form>

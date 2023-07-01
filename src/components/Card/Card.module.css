@@ -1,51 +1,84 @@
+/* Estilos cards */
+
 .divission{
     align-items: center;
-    background-color: red;
+    background-color: white;
     margin: 1em;
     width: 15em;
-    /* height: 20em; */
+    height: 17.8em;
     position: relative;
-
+    border-radius: 10px;
+}
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5em;
+    
+}
+.imagen{
+    height: 85%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+     border-top-right-radius: 10px;
 }
 .nombre{
     position: absolute;
-    top:12em;
-    font-size: medium;
-    background-color: rgba(8, 141, 118, 0.5);
+    top:16em;
+    left: 0;
+    right: 0;
+    padding: 0.5em;
+    text-align: center;
+    font-family: 'Berlin Sans Fb Bold', sans-serif;
+    font-size: .9em;
+    color:green;
+    /* background-color: rgba(8, 141, 118, 0.5); */
+    object-fit: cover;
+    /* transition: background-color 0.3s; */
+    border-radius: 5px;
 }
+.divission:hover .nombre {
+    /* background-color: rgba(8, 141, 118, 0.8);  */
+    color: rgb(111, 231, 68); /* Cambia el color del texto al hacer hover */
+  }
+
 .titulos{
     display:flex;
     flex-direction: row;
     font-size: small;
     justify-content: space-around;
-    visibility: hidden;
 }
 
-.origen{
-    font-size: medium;
-    justify-content:center;
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    visibility: hidden;
-}
+@font-face {
+    font-family: 'Berlin Sans Fb Bold';
+    src:    url('../../../fonts/04433_BerlinSansFBBold.ttf') format('woff2'),
+            url('../../../fonts/04433_BerlinSansFBBold.ttf') format('woff');
+    }
 
-.imagen{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+/* Estilos botones card */
 
-.boton{
+.botonx{
     position: absolute;
     top:0;
     right: 0;
+    z-index:1;
+    visibility: hidden;
+}
+.botonf{
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index:1;
+    visibility: hidden;
 }
 
-.divission:hover .titulos,
-.divission:hover .origen {
+.divission:hover .botonx,
+.divission:hover .botonf {
   visibility: visible; 
 }
+
+/*Estilos Formulario*/
 
 .formulario{
     display: flex;
@@ -55,3 +88,33 @@
     height:35em;
     
 }
+.errormessage {
+    color: red;
+  }
+
+
+
+  /* Estilos Nav */
+
+.navContainer {
+    position: absolute;
+    top: 0;
+    background-color: rgba(153, 95, 29, 0.89);
+
+}
+
+.navBotones{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    
+}
+
+/* Estilos select */
+.selectContain{
+    position: absolute;
+    top: 3em;
+
+}
+
+

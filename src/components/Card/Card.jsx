@@ -12,10 +12,13 @@ export function Card(props) {
          setIsFav(false)
          props.removeFav(props.id)}
       else {
-         props.addFav(props)
-         setIsFav(true)
+         const isAlreadyFav = props.myFavorites.find((fav) => fav.id === props.id);
+         if (!isAlreadyFav) {
+            props.addFav(props);
+            setIsFav(true);
+         }
       }
-   }
+  }
    
    
    useEffect(() => {
@@ -28,31 +31,34 @@ export function Card(props) {
 
    return (
       <div className={styles.divission}>
-         <div>
+         
+         
+         <img src={props.image} alt='' className={styles.imagen}/>
          {
             isFav ? (
-               <button onClick={handleFavorite}>❤️</button>
+               <button onClick={handleFavorite} className={styles.botonf}>❤️</button>
             ) : (
-               <button onClick={handleFavorite}>🤍</button>
+               <button onClick={handleFavorite} className={styles.botonf}>🤍</button>
             )
          }
          
-         <img src={props.image} alt='' className={styles.imagen}/>
-         <button className={styles.boton} onClick={()=>props.onClose(props.id)}>X</button>
+         <button className={styles.botonx} onClick={()=>props.onClose(props.id)}>X</button>
+         
          <Link to={`/detail/${props.id}`}>
+            
             <h2 className={styles.nombre}>{props.name}</h2>
-         </Link>
+         
          
          <div className={styles.titulos}>
             <h2>{props.status}</h2>
-            {/* <h2>{props.gender}</h2> */}
+            <h2>{props.gender}</h2>
             <h2>{props.species}</h2>
+            <h2>{props.origin}</h2>
          </div>
+         </Link>
          
-         <h2 className={styles.origen}>{props.origin}</h2>
          
-         
-         </div>
+      
       </div>
    );
 }
