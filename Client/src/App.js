@@ -34,7 +34,7 @@ function App() {
 
 
    function onSearch(id) {
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
         if (data.name) {
           const  existeChar = characters.some((char) => char.id === data.id);
           
