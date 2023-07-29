@@ -19,34 +19,62 @@ function App() {
    const navigate = useNavigate();
    const URL = 'http://localhost:3001/rickandmorty/';
 
-   function login({ email, password }) {
-      axios(URL + `login?email=${email}&password=${password}`)
-      .then(({ data }) => {
+   async function login({ email, password }) {
+      
+      try{
+         const {data} = await axios(URL + `login?email=${email}&password=${password}`)
          const { access } = data;
          setAccess(access);
          access && navigate('/home');
-      });
+      }catch(error){
+         window.alert(error.message)
+      }
+      // .then(({ data }) => {
+      //    const { access } = data;
+      //    setAccess(access);
+      //    access && navigate('/home');
+      // });
    }
+
+
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
 
 
-   function onSearch(id) {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-        if (data.name) {
-          const  existeChar = characters.some((char) => char.id === data.id);
-          
-          if (existeChar) {
+   async function onSearch(id) {
+      
+      try{
+         const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+         if (data.name) {
+            const  existeChar = characters.some((char) => char.id === data.id);
+            
+            if (existeChar) {
             window.alert('¡Este personaje ya está en la lista!');
-          } else {
+            } else {
             setCharacters((oldChars) => [...oldChars, data]);
-          }
-        } else {
-            window.alert('¡No hay personajes con este ID!');
-        }
-      });
+            }
+      }}catch(error){
+         window.alert(error.message)
+      }    
+      
+      // .then(({ data }) => {
+      //   if (data.name) {
+      //     const  existeChar = characters.some((char) => char.id === data.id);
+          
+      //     if (existeChar) {
+      //       window.alert('¡Este personaje ya está en la lista!');
+      //     } else {
+      //       setCharacters((oldChars) => [...oldChars, data]);
+      //     }
+      //   } else {
+      //       window.alert('¡No hay personajes con este ID!');
+      //   }
+      // });
     }
+
+
+
    const onClose = (id)=>{
       setCharacters((oldChars)=>oldChars.filter((char) => char.id!==id));
    }

@@ -11,7 +11,7 @@ const postFav = (req,res)=>{
     // }else{
         // myFavorite.push(char);
         // console.log('controlermy',myFavorite)
-        console.log('controlerchar',req.body)        
+               
     
     return res.status(200).json(char)
 }
