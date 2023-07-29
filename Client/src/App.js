@@ -14,20 +14,19 @@ function App() {
    
    const [characters, setCharacters] = useState([]);
    const [access,setAccess] = useState(false);
-   const EMAIL = 'prueba@gmail.com';
-   const PASSWORD = '123prueba';
+   // const EMAIL = 'prueba@gmail.com';
+   // const PASSWORD = '123prueba';
    const navigate = useNavigate();
+   const URL = 'http://localhost:3001/rickandmorty/';
 
-   const login = (userData)=>{
-      if(userData.email === EMAIL && userData.password === PASSWORD){
-         setAccess(true);
-         navigate('/home');
-      }else {
-         window.alert('Nombre de usuario o contraseña incorrectos');
-     }
-
+   function login({ email, password }) {
+      axios(URL + `login?email=${email}&password=${password}`)
+      .then(({ data }) => {
+         const { access } = data;
+         setAccess(access);
+         access && navigate('/home');
+      });
    }
-
    useEffect(() => {
       !access && navigate('/');
    }, [access]);

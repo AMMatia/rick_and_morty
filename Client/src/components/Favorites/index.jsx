@@ -24,7 +24,7 @@ export  function Favorites(props){
                 gender={char.gender}
                 image={char.image}
                 onClose={handleClose}
-                myFavorites={props.myFavorites}
+                // myFavorites={props.myFavorites}
                 />
                 ))}
             </div>

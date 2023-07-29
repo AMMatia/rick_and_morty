@@ -12,7 +12,7 @@ export function Card(props) {
          setIsFav(false)
          props.removeFav(props.id)}
       else {
-         const isAlreadyFav = props.myFavorites.find((fav) => fav.id === props.id);
+         const isAlreadyFav = props.myFavorites.some((fav) => fav.id === props.id);
          if (!isAlreadyFav) {
             props.addFav(props);
             setIsFav(true);
@@ -51,7 +51,7 @@ export function Card(props) {
          
          <div className={styles.titulos}>
             <h2>{props.status}</h2>
-            <h2>{props.gender}</h2>
+            <h2 style={{display: "none"}}>{props.gender}</h2>
             <h2>{props.species}</h2>
             <h2>{props.origin}</h2>
          </div>
